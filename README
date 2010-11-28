@@ -1,0 +1,1 @@
+Fecha is a collection of objects to simplify working with dates and times in JavaScript. Fecha does not try to parse dates from strings. For date parsing, try [date.js](http://www.datejs.com/).
