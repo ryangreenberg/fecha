@@ -83,6 +83,17 @@ describe("fecha", function() {
         expect(d.getSeconds()).toEqual(55);
       });
     });
+    
+    describe("#isoDate", function() {
+      it("returns a date formatted as YYYY-MM-DD", function() {
+        var d = new Date();
+        fecha.set(d, {year: 2009, month: 10, date: 10});
+        expect(fecha.isoDate(d)).toEqual('2009-11-10');
+        
+        fecha.set(d, {year: 2008, month: 0, date: 1});
+        expect(fecha.isoDate(d)).toEqual('2008-01-01');
+      });
+    });
 });
 
 
