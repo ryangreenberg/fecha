@@ -1,7 +1,7 @@
 (function(F){
 
   // Like DateRange, but ignores actual date values
-  fecha.TimeRange = function(a, b) {
+  F.TimeRange = function(a, b) {
       // Accepted format for time:
       // HH:MM:SS
       //
@@ -77,7 +77,7 @@
   
   
   // Returns true if the given time falls within this time range
-  fecha.TimeRange.contains = function(time) {
+  F.TimeRange.contains = function(time) {
       var t = time.clone();
           t.setYear(this.start.getFullYear());
           t.setMonth(this.start.getMonth());
@@ -91,7 +91,7 @@
   // time range. A date range overlaps with a time range if any
   // time on any of the days falls between the bounds of this
   // time range
-  fecha.TimeRange.overlaps = function(dateRange) {
+  F.TimeRange.overlaps = function(dateRange) {
       // Shortcut: any date range that lasts for a full day will
       // overlap all possible time ranges (assuming that time ranges
       // cannot spill into a following day)
