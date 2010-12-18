@@ -16,6 +16,11 @@
         return new Date(date.getTime());
     };
 
+    
+    F.isDate = function(obj) {
+        return Object.prototype.toString.call(obj) === "[object Date]";
+    };
+
 
     F.sameDate = function(date1, date2){
         return date1.getFullYear() == date2.getFullYear() &&

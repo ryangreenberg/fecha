@@ -9,6 +9,19 @@ describe("fecha", function() {
             expect(d2.getSeconds()).not.toEqual(d1.getSeconds());
         });
     });
+    
+    describe("#isDate", function() {
+      it("returns true when the object type is Date", function() {
+        expect(fecha.isDate(new Date())).toEqual(true);
+      });
+      
+      it("returns false when the object type is not Date", function() {
+        var types = "String Array Object RegExp Function".split(" ");
+        for (var i=0; i < types.length; i++) {
+          expect(fecha.isDate(new window[types[i]])).toEqual(false);
+        }
+      });
+    });
 
     describe("#sameDate", function() {
       it("returns true when two dates are on the same day, month, and year", function() {
@@ -94,19 +107,15 @@ describe("fecha", function() {
         expect(fecha.isoDate(d)).toEqual('2008-01-01');
       });
     });
+    
+    describe("#hms", function() {
+      it("returns the time component of a date formatted as HH:MM:SS", function() {
+        var d = new Date();
+        fecha.set(d, {hours: 12, minutes: 10, seconds: 10});
+        expect(fecha.hms(d)).toEqual('12:10:10');
+        
+        fecha.set(d, {hours: 0, minutes: 0, seconds: 0});
+        expect(fecha.hms(d)).toEqual('00:00:00');
+      });
+    });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
