@@ -10,19 +10,7 @@ var fecha = {};
         // http://stackoverflow.com/questions/141348#141504
         var d = new Date();
         if (!(time = str.match(/(\d+)(?::(\d\d))?\s*(p?)/))) {
-            if (str.toLowerCase() == 'midnight') {
-                d.setHours(0);
-                d.setMinutes(0);
-                d.setSeconds(0);
-                return d;
-            } else if (str.toLowerCase() == 'noon') {
-                d.setHours(12);
-                d.setMinutes(0);
-                d.setSeconds(0);
-                return d;
-            } else {
-                return false;        
-            }
+            return false;
         } else {
             // time[1] => hour
             time[1] = parseInt(time[1], 10);
@@ -47,7 +35,7 @@ var fecha = {};
 
     F.validTime = function(str) {
       return F.parseTime !== false;
-    }
+    };
 
 
     F.util = {
